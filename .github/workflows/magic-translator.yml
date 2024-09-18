@@ -1,0 +1,26 @@
+name: Logik - Magic Translator
+on:
+  workflow_dispatch:
+    inputs: 
+      action:
+        description: "SAP To Logik Magic Translator"
+        type: choice
+        options: 
+        - translate
+        - splitProcedure
+        - mergeProcedure
+
+      ruleQueryCriteria:
+        type: string
+        description: "Specify SOQL where condition to retrieve data"
+
+      kbCharValueQueryCriteria:
+        type: string
+        description: "Specify SOQL where condition to retrieve data"
+      
+jobs:
+  runTranslation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installing npm
+        run: npm install
